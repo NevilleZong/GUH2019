@@ -18,7 +18,7 @@ from everyday_wechat.utils.data_collection import (
 from everyday_wechat.utils import config
 from everyday_wechat.utils.itchat_helper import (
     init_wechat_config,
-    set_system_notice,
+    set_system_notice
 )
 from everyday_wechat.utils.group_helper import (
     handle_group_helper

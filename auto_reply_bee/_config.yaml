@@ -1,0 +1,85 @@
+# Have to scan QR code everytime
+is_forced_switch: False
+
+#--------------------------------------Set up auto reply--------------------------------------start
+auto_reply_info:
+  # Whether start to reply.
+  is_auto_reply: True
+
+  # Whether to reply to all the friends (only black list members will not be replied).
+  is_auto_reply_all: True
+
+  # auto reply prefix
+  auto_reply_prefix: '🍯 '
+  # auto reply suffix
+  auto_reply_suffix: '  -- Team666 Bee 🐝'
+
+  # White list
+  auto_reply_white_list:
+    - '文件传输助手'
+
+  # Black list
+  auto_reply_black_list:
+    - '贴心小秘书'
+
+  # Robot channel (1: Turing Robot, 3: Qingyunke, 4: Zhinengxianliao, 5:Tianxing Robot, 6：Haizhi AI, 7：Sizhi Robot)
+  bot_channel: 7
+
+  # Turing Robot http://www.tuling123.com/
+  turing_conf:
+    apiKey: '你申请的apikey'
+
+  # Tianxing Robot https://www.tianapi.com/apiview/47
+  txapi_conf:
+    app_key: '个人中心中的key'
+    reply_name: '宝宝'
+    bot_name: '老公' 
+
+  # Zhinengxianliao https://ai.qq.com/product/nlpchat.shtml
+  qqnlpchat_conf:
+    app_id: '你申请的api_id'
+    app_key: '你申请的app_key'
+
+  # Haizhi AI https://ruyi.ai/
+  ruyi_conf:
+    app_key: '你申请的key'
+
+  # Sizhi Robot https://www.ownthink.com/
+  ownthink_conf:
+    app_key: ''
+
+
+
+#--------------------------------------Set up auto reply--------------------------------------end
+
+
+#--------------------------------------Group Chat Helper Settings--------------------------------------start
+
+group_helper_conf:
+  is_open: True # Open group assistant
+  is_all: False # Whether open for all the groups. When opened, only groups in black list will not be affected.
+
+  # White list members. When is_all == False, only reply to groups listed here.
+  group_name_white_list:
+    - 'Team666'
+
+  # Black list members. When is_all == True, the groups listed here will not be replied.
+  group_name_black_list:
+    - 'CS鸽鸽群'
+    - 'CS学习群'
+
+  is_at: True # for @. Only when the robot is @, it handles the messages.
+  is_auto_reply: True # Start auto reply to group chat
+
+
+#--------------------------------------Group Chat Helper Settings--------------------------------------end
+
+
+#--------------------------------------Database Settings--------------------------------------start
+# This database is for the group assistant to query the cache of data.
+db_config: # Need to install mongodb database.
+  is_open_db: True # Whether to turn on database function.
+  mongodb_conf:
+    'host': 'localhost'
+    'port': 27017
+#--------------------------------------Database Settings--------------------------------------end
