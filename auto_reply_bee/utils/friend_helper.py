@@ -5,11 +5,11 @@ Handle messages from friends
 import time
 import random
 import itchat
-from everyday_wechat.utils import config
-from everyday_wechat.utils.data_collection import (
+from auto_reply_bee.utils import config
+from auto_reply_bee.utils.data_collection import (
     get_bot_info
 )
-from everyday_wechat.utils.common import (
+from auto_reply_bee.utils.common import (
     FILEHELPER
 )
 
@@ -46,11 +46,11 @@ def handle_friend(msg):
         if reply_text:  # If content is not empty, reply.
             time.sleep(random.randint(1, 2))  # Sleep for one second.
 
-            prefix = conf.get('auto_reply_prefix', '') 
+            prefix = conf.get('auto_reply_prefix', '')
             if prefix:
                 reply_text = '{}{}'.format(prefix, reply_text)
 
-            suffix = conf.get('auto_reply_suffix', '') 
+            suffix = conf.get('auto_reply_suffix', '')
             if suffix:
                 reply_text = '{}{}'.format(reply_text, suffix)
 

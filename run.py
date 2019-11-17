@@ -7,17 +7,17 @@ import sys
 import re
 from datetime import datetime
 
-try:
-    from everyday_wechat import __version__
-
-    print('EverydayWechat Program version：{}'.format(__version__))
-    _date = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-    print('Current time：{}'.format(_date))
-except Exception as exception:
-    print(str(exception))
-    print('Please put the script in the project root directory to run.')
-    print('Please check for the existence of file everyday_wechat')
-    exit(1)
+# try:
+#     from auto_reply_bee import __version__
+#
+#     print('EverydayWechat Program version：{}'.format(__version__))
+#     _date = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+#     print('Current time：{}'.format(_date))
+# except Exception as exception:
+#     print(str(exception))
+#     print('Please put the script in the project root directory to run.')
+#     print('Please check for the existence of file everyday_wechat')
+#     exit(1)
 
 
 def run():
@@ -50,7 +50,7 @@ def run():
 
 
     print('All environment configurations ready ~ ')
-    from everyday_wechat import main
+    from auto_reply_bee import main
     main.run()
 
 

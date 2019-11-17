@@ -3,13 +3,13 @@ import re
 from datetime import datetime
 from datetime import timedelta
 from importlib import import_module
-from everyday_wechat.utils import config
-from everyday_wechat.utils.common import (
+from auto_reply_bee.utils import config
+from auto_reply_bee.utils.common import (
     md5_encode,
     FILEHELPER_MARK,
     FILEHELPER,
 )
-from everyday_wechat.utils.data_collection import (
+from auto_reply_bee.utils.data_collection import (
     BOT_NAME_DICT
 )
 
@@ -176,7 +176,7 @@ def log_all_config():
     print('=' * 80)
     channel = config.get('auto_reply_info').get('bot_channel', 7)
     source = BOT_NAME_DICT.get(channel, 'ownthink_robot')
-    addon = import_module('everyday_wechat.control.bot.' + source, __package__)
+    addon = import_module('auto_reply_bee.control.bot.' + source, __package__)
     bot_name = addon.BOT_NAME
     print('Autoresponder robot channel: {}'.format(bot_name))
 
@@ -222,7 +222,7 @@ def log_all_config():
             nicknames = []
             for auid in auto_uuids:
                 chatrooms = itchat.search_chatrooms(userName=auid)
-                nickname = chatrooms['NickName']  
+                nickname = chatrooms['NickName']
                 nicknames.append(nickname)
             nns = '，'.join(nicknames)
             print('Apply auto reply to groups, apart from: {}。'.format(nns))
@@ -244,4 +244,3 @@ def log_all_config():
 
 
     print('=' * 80)
-

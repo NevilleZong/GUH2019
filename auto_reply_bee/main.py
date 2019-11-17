@@ -11,19 +11,16 @@ import itchat
 from itchat.content import (
     TEXT
 )
-from everyday_wechat.utils.data_collection import (
-    get_dictum_info,
-    get_constellation_info
-)
-from everyday_wechat.utils import config
-from everyday_wechat.utils.itchat_helper import (
+
+from auto_reply_bee.utils import config
+from auto_reply_bee.utils.itchat_helper import (
     init_wechat_config,
     set_system_notice
 )
-from everyday_wechat.utils.group_helper import (
+from auto_reply_bee.utils.group_helper import (
     handle_group_helper
 )
-from everyday_wechat.utils.friend_helper import (
+from auto_reply_bee.utils.friend_helper import (
     handle_friend
 )
 
@@ -118,4 +115,3 @@ def text_group(msg):
 def exit_msg():
     """ Exit notice """
     print('The program has quit.')
-

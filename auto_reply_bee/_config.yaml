@@ -22,8 +22,8 @@ auto_reply_info:
   auto_reply_black_list:
     - '贴心小秘书'
 
-  # Robot channel (1: Turing Robot, 3: Qingyunke, 4: Zhinengxianliao, 5:Tianxing Robot, 6：Haizhi AI, 7：Sizhi Robot)
-  bot_channel: 7
+  # Robot channel (1: Turing Robot 2:Tianxing Robot)
+  bot_channel: 2
 
   # Turing Robot http://www.tuling123.com/
   turing_conf:
@@ -31,9 +31,9 @@ auto_reply_info:
 
   # Tianxing Robot https://www.tianapi.com/apiview/47
   txapi_conf:
-    app_key: '个人中心中的key'
-    reply_name: '宝宝'
-    bot_name: '老公' 
+    app_key: '1e9afc7d45aee3b14fc2fdf1d491d53b'
+    reply_name: ''
+    bot_name: ''
 
   # Zhinengxianliao https://ai.qq.com/product/nlpchat.shtml
   qqnlpchat_conf:

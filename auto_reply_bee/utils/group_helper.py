@@ -4,8 +4,8 @@ Handle group messages
 
 import re
 import itchat
-from everyday_wechat.utils import config
-from everyday_wechat.utils.data_collection import (
+from auto_reply_bee.utils import config
+from auto_reply_bee.utils.data_collection import (
     get_bot_info
 )
 
@@ -29,7 +29,7 @@ def handle_group_helper(msg):
     if not conf.get('is_open'):
         return
 
-    # If turn on the mode (only reply to @), then ignore message without @ you 
+    # If turn on the mode (only reply to @), then ignore message without @ you
     if conf.get('is_at') and not msg.isAt:
         return
 
@@ -62,4 +62,3 @@ def handle_group_helper(msg):
             print('Reply{}：{}'.format(ated_name, reply_text))
         else:
             print('Fail to auto reply\n')
-
