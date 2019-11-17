@@ -20,6 +20,7 @@ from auto_reply_bee.utils.data_collection import (
 from auto_reply_bee.utils.common import (
     FILEHELPER
 )
+from auto_reply_bee.utils.weather import get_rttodayweather
 
 
 __all__ = ['handle_friend']
@@ -89,6 +90,9 @@ def handle_friend(msg):
                 reply = itchat.send_file('textToSpeech.mp3', toUserName=uuid)
                 print(reply['BaseResponse']['ErrMsg'])
                 print('MP3 sent')
+        elif words[0] == "weather" or words[0] == "天气":
+            reply_text = get_rttodayweather(words[1])
+            itchat.send(reply_text, toUserName = uuid)
                 
         else:
             # Future modification to fix possible bug
