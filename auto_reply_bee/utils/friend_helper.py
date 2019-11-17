@@ -40,10 +40,35 @@ def handle_friend(msg):
             return
 
         receive_text = msg.text  # Message content sent by friends.
-        nick_name = FILEHELPER if uuid == FILEHELPER else msg.user.nickName
+        nick_name = FILEHELPER if uuid == FILEHELPER else msg.user.nickName       
         print('\n{} sent message：{}'.format(nick_name, receive_text))
-        reply_text = get_bot_info(receive_text, uuid)  # Get auto reply
-        if reply_text:  # If content is not empty, reply.
+
+        # Future modification to fix possible bug
+        if (receive_text.lower() == "sing"):
+            reply_text = "send_music_command"
+
+        elif (receive_text.lower() == "hi"):
+            reply_text = "send_hi_command"
+        else:
+            reply_text = get_bot_info(receive_text, uuid)  # Get auto reply
+        
+        if (reply_text == "send_music_command"):
+            time.sleep(random.randint(1, 2))
+            print('MP3 sending')
+            itchat.send("Singing now, please wait patiently.", toUserName=uuid)
+            reply = itchat.send_file('music.mp3', toUserName=uuid)
+            print(reply['BaseResponse']['ErrMsg'])
+            print('MP3 sent')
+
+        elif (reply_text == "send_hi_command"):
+            time.sleep(random.randint(1, 2))
+            print('Image sending')
+            itchat.send("Hi. How are you?", toUserName=uuid)
+            reply = itchat.send_image('bee.gif', toUserName=uuid)
+            print(reply['BaseResponse']['ErrMsg'])
+            print('Image sent') 
+        
+        elif reply_text:  # If content is not empty, reply.
             time.sleep(random.randint(1, 2))  # Sleep for one second.
 
             prefix = conf.get('auto_reply_prefix', '')
