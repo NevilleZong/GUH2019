@@ -35,21 +35,6 @@ auto_reply_info:
     reply_name: ''
     bot_name: ''
 
-  # Zhinengxianliao https://ai.qq.com/product/nlpchat.shtml
-  qqnlpchat_conf:
-    app_id: '你申请的api_id'
-    app_key: '你申请的app_key'
-
-  # Haizhi AI https://ruyi.ai/
-  ruyi_conf:
-    app_key: '你申请的key'
-
-  # Sizhi Robot https://www.ownthink.com/
-  ownthink_conf:
-    app_key: ''
-
-
-
 #--------------------------------------Set up auto reply--------------------------------------end
 
 
@@ -65,12 +50,9 @@ group_helper_conf:
 
   # Black list members. When is_all == True, the groups listed here will not be replied.
   group_name_black_list:
-    - 'CS鸽鸽群'
     - 'CS学习群'
 
-  is_at: True # for @. Only when the robot is @, it handles the messages.
   is_auto_reply: True # Start auto reply to group chat
-
 
 #--------------------------------------Group Chat Helper Settings--------------------------------------end
 
@@ -78,7 +60,7 @@ group_helper_conf:
 #--------------------------------------Database Settings--------------------------------------start
 # This database is for the group assistant to query the cache of data.
 db_config: # Need to install mongodb database.
-  is_open_db: True # Whether to turn on database function.
+  is_open_db: False # Whether to turn on database function.
   mongodb_conf:
     'host': 'localhost'
     'port': 27017

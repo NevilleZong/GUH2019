@@ -63,7 +63,18 @@ def handle_friend(msg):
         elif (reply_text == "send_hi_command"):
             time.sleep(random.randint(1, 2))
             print('Image sending')
-            itchat.send("Hi. How are you?", toUserName=uuid)
+            reply_text = "Hi. Sending you cute bee gif."
+
+            prefix = conf.get('auto_reply_prefix', '')
+            if prefix:
+                reply_text = '{}{}'.format(prefix, reply_text)
+
+            suffix = conf.get('auto_reply_suffix', '')
+            if suffix:
+                reply_text = '{}{}'.format(reply_text, suffix)
+
+            itchat.send(reply_text, toUserName=uuid)
+            print('Replied by {}：{}'.format(nick_name, reply_text))
             reply = itchat.send_image('bee.gif', toUserName=uuid)
             print(reply['BaseResponse']['ErrMsg'])
             print('Image sent') 

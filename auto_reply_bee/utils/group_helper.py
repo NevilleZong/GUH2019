@@ -25,13 +25,11 @@ def handle_group_helper(msg):
     if ated_uuid == config.get('wechat_uuid'):
         return
 
+
     conf = config.get('group_helper_conf')
     if not conf.get('is_open'):
         return
 
-    # If turn on the mode (only reply to @), then ignore message without @ you
-    if conf.get('is_at') and not msg.isAt:
-        return
 
     is_all = conf.get('is_all', False)
     user_uuids = conf.get('group_black_uuids') if is_all else conf.get('group_white_uuids')
@@ -39,19 +37,12 @@ def handle_group_helper(msg):
     if is_all and uuid in user_uuids:
         return
 
+
     # If normal mode, but the group is not in white list, ignore too.
     if not is_all and uuid not in user_uuids:
         return
 
-    # Remove @.
-    text = re.sub(at_compile, '', text)
-
-    # If it is help setting.
-    helps = re.findall(help_complie, text, re.I)
-    if helps:
-        retext = help_group_content.format(ated_name=ated_name)
-        itchat.send(retext, uuid)
-        return
+    common_msg = '@{ated_name}\u2005\n{text}'
 
     # Auto reply.
     if conf.get('is_auto_reply'):

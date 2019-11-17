@@ -7,7 +7,7 @@ from auto_reply_bee.utils import config
 from auto_reply_bee.utils.common import (
     md5_encode,
     FILEHELPER_MARK,
-    FILEHELPER,
+    FILEHELPER
 )
 from auto_reply_bee.utils.data_collection import (
     BOT_NAME_DICT
@@ -49,8 +49,7 @@ def init_wechat_config():
             friend = get_friend(name)
             if friend:
                 auto_reply_uuids_list.append(friend['UserName'])
-            else:
-                print('In auto reply, the nickname of friend "{}" is wrong'.format(name))
+
         reply[auto_reply_list_uuid_name] = set(auto_reply_uuids_list)
 
      #---------------------------Handle auto replying to friends---------------------------end
@@ -178,8 +177,7 @@ def log_all_config():
     source = BOT_NAME_DICT.get(channel, 'ownthink_robot')
     addon = import_module('auto_reply_bee.control.bot.' + source, __package__)
     bot_name = addon.BOT_NAME
-    print('Autoresponder robot channel: {}'.format(bot_name))
-
+    
     #----------------------------------- Auto reply to friends -----------------------------------start
     reply = config.get('auto_reply_info', None)
     if not reply or not reply.get('is_auto_reply'):
@@ -237,8 +235,6 @@ def log_all_config():
 
             print('Auto reply are now applied to groups：{} '.format(nns))
 
-            if helper.get('is_at'):
-                print('Only auto reply when @.')
             if helper.get('is_auto_reply'):
                 print('Auto reply to groups has started.')
 
